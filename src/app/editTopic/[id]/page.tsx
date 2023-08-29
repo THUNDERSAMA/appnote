@@ -3,7 +3,7 @@ import EditTopic from "@/components/EditTopic";
 const getTopicById =async (id:any)=>{
   console.log(id);
     try {
-      const res = await fetch(`/api/topics/${id}`,{
+      const res = await fetch(`https://statuesque-kashata-a5d6c6.netlify.app:3000/api/topics/${id}`,{
         cache:"no-store",
       });
       //console.log(res);
@@ -20,11 +20,13 @@ const getTopicById =async (id:any)=>{
  export default async function editTopic({params}:any)
  {
   console.log(params);
-  if(params!)
+ const {id}=params;
+  console.log(id);
+  if(id==null)
   {
     return (<div>error</div>);
   }
-    const {id}=params;
+    
     const{topic}=await getTopicById(id);
     const {title,description}=topic;
     console.log(id);
