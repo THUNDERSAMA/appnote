@@ -1,9 +1,10 @@
+"use client"
 import EditTopic from "@/components/EditTopic";
 
 const getTopicById =async (id:any)=>{
   console.log(id);
     try {
-      const res = await fetch(`https://statuesque-kashata-a5d6c6.netlify.app:3000/api/topics/${id}`,{
+      const res = await fetch(`/api/topics/${id}`,{
         cache:"no-store",
       });
       //console.log(res);
